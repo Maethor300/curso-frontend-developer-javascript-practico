@@ -5,9 +5,12 @@ const menuBoton = document.querySelector(".menu")
 const botonCarrito = document.querySelector(".navbar-shopping-cart")
 const firstViewProducts = document.querySelector("#firstViewProducts")
 const removeMain = document.querySelector(".remove")
+const clickProducts = document.querySelector("#clickProducts") 
+const productDetailClose = document.querySelector(".product-detail-close")
 boton.addEventListener("click", botonClickNav1)
 menuBoton.addEventListener("click", pushMenuBoton)
 botonCarrito.addEventListener("click", pushBotonCarrito)
+productDetailClose.addEventListener("click", closeProductDetail) 
 // removeMain.addEventListener("click", bodyPush)
 // function bodyPush (){
 //       nav1.classList.add("inactive")
@@ -17,14 +20,18 @@ botonCarrito.addEventListener("click", pushBotonCarrito)
 function botonClickNav1(){
       if(!firstViewProducts.classList.toggle("inactive")){
             firstViewProducts.classList.toggle("inactive")
-      }
+      }if(! clickProducts.classList.contains("inactive")){
+            clickProducts.classList.add("inactive")
+       }
          nav1.classList.toggle("inactive")
        
 }
 function pushMenuBoton(){
       if(!firstViewProducts.classList.toggle("inactive")){
             firstViewProducts.classList.add("inactive")
-      }
+      }if(! clickProducts.classList.contains("inactive")){
+            clickProducts.classList.add("inactive")
+       }
       mobileMenu.classList.toggle("inactive")
 }
 function pushBotonCarrito(){
@@ -32,9 +39,16 @@ function pushBotonCarrito(){
             mobileMenu.classList.add("inactive")
        }if(!nav1.classList.toggle("inactive")){
             nav1.classList.add("inactive")
+       }if(! clickProducts.classList.contains("inactive")){
+            clickProducts.classList.add("inactive")
        }
        firstViewProducts.classList.toggle("inactive")
        
+}
+function closeProductDetail(){
+      if(!clickProducts.classList.contains("inactive")){
+            clickProducts.classList.toggle("inactive")
+      }
 }
  const productList = [];
  productList.push({
@@ -43,9 +57,9 @@ function pushBotonCarrito(){
       img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
  })
  productList.push({
-      name: "Pantalla",
-      price: "$"+200.00,
-      img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      name: "PC",
+      price: "$"+1000.00,
+      img:"./icons/laptop-ga48b71101_1280.jpg",
  })
  productList.push({
       name: "Mouse",
@@ -105,6 +119,17 @@ productList.push({
             const imageCreate = document.createElement("img") 
             imageCreate.setAttribute("src", i.img,)
             imageCreate.setAttribute("alt","") 
+            imageCreate.addEventListener("click", openDetails)
+            function openDetails (){
+                  if(!firstViewProducts.classList.contains("inactive")){
+                        firstViewProducts.classList.add("inactive")
+                  }if(!nav1.classList.toggle("inactive")){
+                        nav1.classList.add("inactive")}
+                        if(!mobileMenu.classList.contains("inactive")){
+                              mobileMenu.classList.add("inactive")
+                         }
+                  clickProducts.classList.remove("inactive")
+            }
             productCard.append(imageCreate)
             const productInfo = document.createElement("div")
             productInfo.classList.add("product-info")
@@ -121,6 +146,8 @@ productList.push({
             const imgFigure = document.createElement("img")
             figure1.appendChild(imgFigure)
             imgFigure.setAttribute("src","./icons/bt_add_to_cart.svg" )
+            imgFigure.classList.add("img-show")             
        }
  }
  listProducts(productList)
+ 
