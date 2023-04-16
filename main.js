@@ -3,7 +3,7 @@ const boton = document.querySelector(".boton1")
 const mobileMenu = document.querySelector(".mobile-menu")
 const menuBoton = document.querySelector(".menu")
 const botonCarrito = document.querySelector(".navbar-shopping-cart")
-const product_detail = document.querySelector(".product-detail")
+const firstViewProducts = document.querySelector("#firstViewProducts")
 const removeMain = document.querySelector(".remove")
 boton.addEventListener("click", botonClickNav1)
 menuBoton.addEventListener("click", pushMenuBoton)
@@ -12,18 +12,18 @@ botonCarrito.addEventListener("click", pushBotonCarrito)
 // function bodyPush (){
 //       nav1.classList.add("inactive")
 //       mobileMenu.classList.add("inactive")
-//       product_detail.classList.add("inactive")
+//       firstViewProducts.classList.add("inactive")
 // } 
 function botonClickNav1(){
-      if(!product_detail.classList.toggle("inactive")){
-            product_detail.classList.toggle("inactive")
+      if(!firstViewProducts.classList.toggle("inactive")){
+            firstViewProducts.classList.toggle("inactive")
       }
          nav1.classList.toggle("inactive")
        
 }
 function pushMenuBoton(){
-      if(!product_detail.classList.toggle("inactive")){
-            product_detail.classList.add("inactive")
+      if(!firstViewProducts.classList.toggle("inactive")){
+            firstViewProducts.classList.add("inactive")
       }
       mobileMenu.classList.toggle("inactive")
 }
@@ -33,7 +33,7 @@ function pushBotonCarrito(){
        }if(!nav1.classList.toggle("inactive")){
             nav1.classList.add("inactive")
        }
-       product_detail.classList.toggle("inactive")
+       firstViewProducts.classList.toggle("inactive")
        
 }
  const productList = [];
@@ -67,6 +67,22 @@ function pushBotonCarrito(){
       price: "$"+30.00,
       img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
  })
+
+productList.push({
+     name: "Bike",
+     price: "$"+120.00,
+     img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
+productList.push({
+     name: "Pantalla",
+     price: "$"+200.00,
+     img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
+productList.push({
+     name: "Mouse",
+     price: "$"+30.00,
+     img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
 {/* <div class="product-card">
         <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
         <div class="product-info">
